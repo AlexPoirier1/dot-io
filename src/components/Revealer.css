@@ -1,0 +1,19 @@
+.revealer-container {
+    width: 400px;
+}
+
+.revealer-container:hover .title {
+    animation: 1.3s linear 0s 1 normal both running slideout;
+}
+
+.title {
+}
+
+@keyframes slideout {
+    0% {
+        transform: skew(0deg, 0deg) translate(0, 0);
+    }
+    100% {
+        transform: skew(-30deg, -20deg) translate(-200px, 0);
+    }
+}
