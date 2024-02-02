@@ -5,7 +5,7 @@ interface RevealerProps {
     color: string
 }
 
-export function Revealer({ title, color }: Readonly<RevealerProps>) {
+export function Revealer({ title }: Readonly<RevealerProps>) {
     return (
         <div className="revealer-container">
             <h3 className="title">{title}</h3>
