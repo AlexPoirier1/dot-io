@@ -8,7 +8,9 @@ interface RevealerProps {
 export function Revealer({ title }: Readonly<RevealerProps>) {
     return (
         <div className="container centered-row">
-            <h3 className="title">{title}</h3>
+            <div className="title">
+                <h3>{title}</h3>
+            </div>
             <div className="background"></div>
         </div>
     )
