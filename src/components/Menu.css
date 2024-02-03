@@ -1,0 +1,138 @@
+.menu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    height: 100vh;
+
+    &.open {
+        transition: width 0.5s ease-in-out;
+        /* opacity: 1; */
+        width: 300px;
+        box-shadow: 6px 6px 8px rgba(255, 190, 152, 0.2);
+    }
+}
+
+.menu-handle {
+    cursor: pointer;
+    flex-direction: column;
+    gap: 16px;
+    padding: 20px;
+    height: 60px;
+    width: 70px;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    .top-bar {
+        animation-name: top-bar-reverse;
+        animation-duration: 0.5s;
+    }
+
+    .mid-bar {
+        animation-duration: 0.5s;
+        animation-name: mid-bar-reverse;
+    }
+
+    .bottom-bar {
+        animation-duration: 0.5s;
+        animation-name: bottom-bar-reverse;
+    }
+
+    &:hover {
+        .top-bar {
+            animation-direction: normal;
+            animation-fill-mode: forwards;
+            animation-name: top-bar;
+        }
+
+        .mid-bar {
+            animation-direction: normal;
+            animation-fill-mode: forwards;
+            animation-name: mid-bar;
+        }
+
+        .bottom-bar {
+            animation-direction: normal;
+            animation-fill-mode: forwards;
+            animation-name: bottom-bar;
+        }
+
+        .bar {
+            background-color: rgba(255, 190, 152, 1);
+        }
+    }
+}
+
+.bar {
+    height: 3px;
+    width: 100%;
+    background-color: white;
+    border-radius: 4px;
+    transition: all 0.5s ease-in-out;
+}
+
+@keyframes top-bar {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        width: 50%;
+        transform: rotate(45deg) translateY(-16px) translateX(26px);
+    }
+}
+
+@keyframes top-bar-reverse {
+    from {
+        width: 50%;
+        transform: rotate(45deg) translateY(-16px) translateX(26px);
+    }
+    to {
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes mid-bar {
+    from {
+        opacity: 1;
+        width: 100%;
+    }
+
+    to {
+        width: 0%;
+        transform: translateX(25px);
+        opacity: 0;
+    }
+}
+
+@keyframes mid-bar-reverse {
+    from {
+        width: 0%;
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+        width: 100%;
+    }
+}
+
+@keyframes bottom-bar {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        width: 50%;
+        transform: rotate(-45deg) translateY(16px) translateX(26px);
+    }
+}
+
+@keyframes bottom-bar-reverse {
+    from {
+        width: 50%;
+        transform: rotate(-45deg) translateY(16px) translateX(26px);
+    }
+    to {
+        transform: rotate(0deg);
+    }
+}
