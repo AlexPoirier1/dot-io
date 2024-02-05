@@ -6,10 +6,97 @@
     height: 100vh;
 
     &.open {
-        transition: width 0.5s ease-in-out;
-        /* opacity: 1; */
-        width: 300px;
-        box-shadow: 6px 6px 8px rgba(255, 190, 152, 0.2);
+        display: flex;
+        flex-direction: column;
+        border-radius: 12px;
+        transition:
+            width 2.5s ease-in-out,
+            height 2.5s ease-in-out;
+        background-color: rgba(255, 190, 152, 1);
+        /* background-color: #faa; */
+        width: 100%;
+        height: 100%;
+        padding: 8px;
+
+        .width-bar {
+            position: absolute;
+            animation-fill-mode: forwards;
+            animation-duration: 3.5s;
+            animation-timing-function: ease-in-out;
+            height: 4px;
+            background-color: #2c1f3c;
+            border-radius: 4px;
+
+            &.top {
+                top: 8px;
+                animation-name: top-border;
+            }
+
+            &.bottom {
+                animation-name: bottom-border;
+                animation-delay: 3.5s;
+                transform: translateY(calc(100vh - 22px));
+                width: 0%;
+            }
+        }
+
+        .height-bar {
+            position: absolute;
+            animation-fill-mode: forwards;
+            animation-duration: 3.5s;
+            animation-timing-function: ease-in-out;
+            height: 4px;
+            background-color: #2c1f3c;
+            border-radius: 4px;
+
+            &.left {
+                transform: rotate(90deg) translateX(calc(50vh - 9px)) translateY(calc(-50vw - 44px));
+                animation-name: left-border;
+            }
+
+            &.right {
+                transform: rotate(90deg) translateX(calc(50vh - 9px)) translateY(calc(-50vw - 44px));
+                animation-name: right-border;
+                animation-delay: 3.5s;
+                width: 0%;
+            }
+        }
+    }
+}
+
+@keyframes top-border {
+    from {
+        width: 1%;
+    }
+    to {
+        width: calc(100vw - 22px);
+    }
+}
+
+@keyframes bottom-border {
+    from {
+        width: 1%;
+    }
+    to {
+        width: calc(100vw - 22px);
+    }
+}
+
+@keyframes left-border {
+    from {
+        width: 1%;
+    }
+    to {
+        width: calc(100vh - 22px);
+    }
+}
+
+@keyframes right-border {
+    from {
+        width: 1%;
+    }
+    to {
+        width: calc(100vh - 16px);
     }
 }
 
